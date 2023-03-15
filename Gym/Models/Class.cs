@@ -13,6 +13,4 @@ public class Class
   public int LocationId {get; set;}
   public Location Location {get; set;}
   public List<ClassMember> JoinEntities {get;}
-
-
 }
