@@ -12,6 +12,7 @@ namespace Gym.Controllers;
 public class ClassesController : Controller
 {
   private readonly GymContext _db;
+
   public ClassesController(GymContext db)
   {
     _db = db;
@@ -29,9 +30,9 @@ public class ClassesController : Controller
   }
 
   [HttpPost]
-  public ActionResult Create(Class class)
+  public ActionResult Create(Class newClass)
   {
-    _db.Classes.Add(class);
+    _db.Classes.Add(newClass);
     _db.SaveChanges();
     return RedirectToAction("Index");
   }
@@ -39,9 +40,9 @@ public class ClassesController : Controller
   public ActionResult Details(int id)
   {
     Class thisClass = _db.Classes
-      .Include(class => class.Members)
-      .ThenInclude(member => member.JoinEntities)
-      .FirstOrDefault(class => class.ClassId == id);
+      .Include(thingy => thingy.JoinEntities)
+      .ThenInclude(thingy => thingy.Member)
+      .FirstOrDefault(thingy => thingy.ClassId == id);
     return View(thisClass);
   }  
 }
