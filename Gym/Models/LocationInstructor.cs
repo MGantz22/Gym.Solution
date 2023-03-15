@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 namespace Gym.Models
+
 {
     public class LocationInstructor
     {
@@ -7,6 +9,5 @@ namespace Gym.Models
         public int InstructorId {get; set;}
         public Location Location {get; set;}
         public Instructor Instructor {get; set;}
-        public List<LocationInstructor> JoinEntities {get;}
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace Gym.Models
 {
     public class Instructor
