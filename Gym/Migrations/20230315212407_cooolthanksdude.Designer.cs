@@ -3,6 +3,7 @@ using System;
 using Gym.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gym.Migrations
 {
     [DbContext(typeof(GymContext))]
-    partial class GymContextModelSnapshot : ModelSnapshot
+    [Migration("20230315212407_cooolthanksdude")]
+    partial class cooolthanksdude
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,7 +150,7 @@ namespace Gym.Migrations
 
             modelBuilder.Entity("Gym.Models.Class", b =>
                 {
-                    b.HasOne("Gym.Models.Instructor", "Instructor")
+                    b.HasOne("Gym.Models.Instructor", "Instuctor")
                         .WithMany("Classes")
                         .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -164,7 +166,7 @@ namespace Gym.Migrations
                         .WithMany("Classes")
                         .HasForeignKey("TypeOfClassId");
 
-                    b.Navigation("Instructor");
+                    b.Navigation("Instuctor");
 
                     b.Navigation("Location");
                 });
