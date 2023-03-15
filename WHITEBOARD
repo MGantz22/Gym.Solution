@@ -1,0 +1,32 @@
+Location  
+   /    
+   class   
+
+
+
+   Class 
+    //
+    students
+
+
+
+
+
+
+    Location                    typeofclass
+    /       //                         /
+    class   instructor                  class      
+            /
+            class
+            //
+            students  
+
+
+Location
+Class
+TypeOfClass
+Instructor
+Student
+
+Location_Instructor
+Class_Student
