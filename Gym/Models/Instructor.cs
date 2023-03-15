@@ -6,5 +6,8 @@ namespace Gym.Models
         public string InstructorName {get;set;}
         public int ClassId {get;set;}
         public Class Class {get;set;}
+        public int LocationId {get; set;}
+        public Location Location {get; set;}
     }
+
 }
