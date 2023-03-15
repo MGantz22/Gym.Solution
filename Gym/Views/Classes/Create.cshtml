@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Gym.Models.Class
+
+<h1>Add a new class to CMJ gym!</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.ClassName)
+  @Html.TextBoxFor(model => model.ClassName)
+<br>
+  <input type="submit" value="Add new class"/>
+}
+
+<p>@Html.ActionLink("Show all Classes", "Index")</p>
