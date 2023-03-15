@@ -7,9 +7,6 @@ namespace Gym.Models
     {
         public int MemberId {get; set;}
         public string MemberName {get; set;}
-        public int ClassId {get; set;}
-        public Class Class {get; set;}
-        
-
+        public List<ClassMember> JoinEntities {get;set;}
     }
 }
