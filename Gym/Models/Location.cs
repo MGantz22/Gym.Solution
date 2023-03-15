@@ -7,6 +7,8 @@ namespace Gym.Models
     {
         public int LocationId {get; set;}
         public string LocationName {get; set;}
+        //address?
+        //hours?
         public List<LocationInstructor> JoinEntities {get;}
     }
 }

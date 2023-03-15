@@ -1,0 +1,14 @@
+@{
+    Layout = "_Layout";
+}
+
+@using Gym.Models;
+
+<h1> All Instructors </h1>
+@foreach (Instructor item in Model)
+{
+    @Html.ActionLink($"{item.InstructorName}","Details", new {id =item.InstructorId} )
+    <br>
+}
+<br><br>
+@Html.ActionLink("Add an Instructor","Create")

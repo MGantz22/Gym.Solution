@@ -4,6 +4,17 @@
 
 @using Gym.Models;
 
-<h1>Course</h1>
+<h1>Classes:</h1>
+
+@foreach (Class item in Model)
+{
+  <p>@Html.ActionLink($"{@item.Name}", "Details", "Classes", new {id = item.ClassId}) | @Html.ActionLink($"{@item.Instructor.InstructorName}", "Details", "Instructors", new {id = item.Instructor.InstructorId}) |  @Html.ActionLink($"{@item.Location.LocationName}", "Details", "Locations", new {id = item.Location.LocationId})</p>
+  <br>
+}
+
+<br>
+@Html.ActionLink("Add a class!", "Create", "Classes")<br>
+@Html.ActionLink("Add member to class", "Create", "Members")<br>
+@Html.ActionLink("Run Home Smalls", "Index", "Home")<br>
 
 

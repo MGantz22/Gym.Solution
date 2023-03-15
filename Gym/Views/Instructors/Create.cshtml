@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>Add a new Instructor</h1>
+@model Gym.Models.Instructor
+@using(Html.BeginForm())
+{
+    @Html.LabelFor(model => model.InstructorName)
+    @Html.EditorFor(model => model.InstructorName)
+
+    <input type="submit" value="Add a new Instructor"/>
+
+
+} 

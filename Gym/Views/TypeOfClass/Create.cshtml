@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Gym.Models.TypeOfClass
+
+<h1>Add a new class catagory!</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model=>model.TypeOfClassName)
+  @Html.EditorFor(model=>model.TypeOfClassName)
+  <button>Save</button>
+}
