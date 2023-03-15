@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Gym.Models;
+
+<h4>Member List</h4>
+
+@if (@Model.Count == 0)
+{
+    <h2> No Members Have Joined yet </h2>
+}
+    <ul>
+    @foreach(Member member in Model)
+    {
+        <li> @Html.ActionLink($"{member.MemberName}", "Details", new{ id = member.MemberId}) </li>
+    }
+
+
+<p>@Html.ActionLink("Add a new Member", "Create")</p>
+<p>@Html.ActionLink("Home","Index", "Home")</p>
