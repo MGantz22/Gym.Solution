@@ -7,6 +7,8 @@ namespace Gym.Models
         public int ClassMemberId {get;set;}
         public int ClassId {get; set;}
         public int MemberId {get; set;}
+        public Member Member {get; set;}
+        public Class Class {get; set;}
 
     }
 }
