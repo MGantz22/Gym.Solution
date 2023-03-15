@@ -20,12 +20,17 @@ public class ClassesController : Controller
 
   public ActionResult Index()
   {
-    List<Class> model = _db.Classes.ToList();
+    List<Class> model = _db.Classes
+      .Include(model=> model.Instructor)
+      .Include(model=>model.Location)
+      .ToList();
     return View(model);
   }
 
   public ActionResult Create()
   {
+    ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
+    ViewBag.InstructorId = new SelectList(_db.Instructors, "InstructorId", "InstructorName");
     return View();
   }
 

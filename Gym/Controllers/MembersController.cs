@@ -5,45 +5,53 @@ using Gym.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-// namespace Gym.Controllers
-// {
-//     public class MembersController : Controller
-//     {
-//         private readonly GymContext _db;
+namespace Gym.Controllers
+{
+    public class MembersController : Controller
+    {
+        private readonly GymContext _db;
 
-//     public MembersController(GymContext db)
-//     {
-//         _db = db;
-//     }
+    public MembersController(GymContext db)
+    {
+        _db = db;
+    }
 
-//     public ActionResult Index()
-//     {
-//         List<Member> model = _db.Members
-//                                         .include(member => member.class)
-//                                         .ToList();
-//         return View();
-//     }
+    public ActionResult Index()
+    {
+    return View(_db.Members.ToList());
+        
+    }
 
-//     public ActionResult Create()
-//     {
-//     ViewBad.ClassId = new SelectList(_db.Classes, "ClassId","ClassName");
-//     return View();
-//     }
-//     [HttpPost]
-//     public ActionResult Create(Member member)
-//     {
-//         if (member.ClassId == 0)
-//         {
-//             return RedirectToAction("Create");
-//         }
-//         _db.Members.Add(member);
-//         _db.SaveChanges();
-//         return RedirectToAction("Index");
-//     }
+    public ActionResult Create()
+    {
+    ViewBag.ClassId = new SelectList(_db.Classes, "ClassId","Name");
+    return View();
+    }
+    [HttpPost]
+    public ActionResult Create(Member member)
+    {
+        _db.Members.Add(member);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
     
+    public ActionResult Edit(int id)
+        {
+            Member thisMember = _db.Members.FirstOrDefault(member => member.MemberId == id);
+            ViewBag.ClassId = new SelectList(_db.Classes, "ClassId", "ClassName");
+            return View(thisMember);
+        }
+
+    [HttpPost]
+        public ActionResult Edit(Member member)
+        {
+            _db.Members.Update(member);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
 
 
-//     }
-// }
+    }
+}
