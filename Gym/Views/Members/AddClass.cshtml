@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Gym.Models.Member
+
+<h2>Add a member to a class</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MemberId)
+  @Html.Label("Select Class")
+  @Html.DropDownList("ClassId")
+  <button>Save</button>
+}
+
+<p>@Html.ActionLink("Back to Members", "Index")</p>

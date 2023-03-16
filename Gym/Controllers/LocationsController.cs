@@ -42,7 +42,7 @@ public class LocationsController : Controller
     return View(thisLocation);
   }
 
-  public ActionResult AddInstructor(int id)
+  public ActionResult AddLocationInstructor(int id)
   {
     Location thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
     ViewBag.InstructorId = new SelectList(_db.Instructors, "InstructorId", "InstructorName");

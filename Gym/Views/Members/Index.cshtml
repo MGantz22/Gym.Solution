@@ -13,7 +13,9 @@
     <ul>
     @foreach(Member member in Model)
     {
-        <li> @Html.ActionLink($"{member.MemberName}", "Details", new{ id = member.MemberId}) </li>
+        <li> @Html.ActionLink($"{member.MemberName}", "Details", new{ id = member.MemberId})
+            @Html.ActionLink($"{@member.MemberName}", "AddClass", new {id = member.MemberId})
+        </li>
     }
     </ul>
 <br><br>

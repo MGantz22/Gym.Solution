@@ -11,7 +11,7 @@
 
 @if(@Model.JoinEntities.Count == 0)
 {
-    <p>You have not added any locations yet</p>
+    <p>You have not added any instructors to your locations yet</p>
 }
 else
 {
@@ -29,5 +29,5 @@ else
 }
 
 <p>@Html.ActionLink("Back to Locations", "Index")</p>
-<p>@Html.ActionLink("Add a Instructor Location", "LocationInstructor")</p>
-
+<p>@Html.ActionLink("Add a Instructor to Location", "AddLocationInstructor", new {id = Model.LocationId})</p>
+<p>@Html.ActionLink("Run Home Smalls", "Index", "Home")</p>
