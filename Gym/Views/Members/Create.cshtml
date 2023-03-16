@@ -4,13 +4,12 @@
 
 @model Gym.Models.Member
 <h4>Add a new member<h4>
-
+<br>
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model=> model.MemberName)
     @Html.TextBoxFor(model => model.MemberName)
-
     <input type="submit" value="Add a new Member"/>
-
 }
+<br>
 <p>@Html.ActionLink("Show all members", "Index")</p>
