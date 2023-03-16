@@ -7,3 +7,10 @@ div#footer {
 	background:#333;
 	padding:8px;
 }
+
+body {
+	background-image: url("../img/logo.png");
+  background-position: right;
+  background-size: 70%;
+	background-repeat:no-repeat;
+}
