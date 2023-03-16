@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+@using Gym.Models;
+@model Gym.Models.Location
+
+<h1>Location Details</h1>
+
+<h2>@Html.DisplayNameFor(model => model.LocationName): @Html.DisplayFor(model => model.LocationName)</h2>
+
+
+@if(@Model.JoinEntities.Count == 0)
+{
+    <p>You have not added any locations yet</p>
+}
+else
+{
+    <ul>
+        @foreach (LocationInstructor item in Model.JoinEntities)
+        {
+            <li>Locations: @item.Instructor.InstructorName</li>
+            @using (Html.BeginForm("DeleteItem","Locations"))
+            {
+                @Html.Hidden("ItemId", @item.LocationInstructorId)
+            }
+            
+        }
+    </ul>
+}
+
+<p>@Html.ActionLink("Back to Locations", "Index")</p>
+<p>@Html.ActionLink("Add a Instructor Location", "LocationInstructor")</p>
+
