@@ -33,6 +33,15 @@ public class LocationsController : Controller
     return RedirectToAction("Index");
   }
 
+  public ActionResult Details(int id)
+  {
+    Location thisLocation = _db.Locations
+      .Include(item => item.JoinEntities)
+      .ThenInclude(item=>item.Instructor)
+      .FirstOrDefault(fish => fish.LocationId == id);
+    return View(thisLocation);
+  }
+
   public ActionResult AddInstructor(int id)
   {
     Location thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
