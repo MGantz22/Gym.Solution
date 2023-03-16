@@ -8,7 +8,6 @@ public class GymContext : DbContext
   public DbSet<Location> Locations { get; set; }
   public DbSet<Member> Members { get; set; }
   public DbSet<Instructor> Instructors {get; set;}
-  public DbSet<TypeOfClass> ClassTypes {get; set;} 
   public DbSet<ClassMember> ClassMembers { get; set; }
   public DbSet<LocationInstructor> LocationInstructors {get; set;}
   
