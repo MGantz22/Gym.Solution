@@ -1,13 +1,3 @@
-Location  
-   /    
-   class   
-
-
-
-   Class 
-    //
-    students
-
 
 
 
@@ -30,3 +20,5 @@ Student
 
 Location_Instructor
 Class_Student
+
+class_LocationInstructor

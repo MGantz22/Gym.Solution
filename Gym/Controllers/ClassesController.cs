@@ -29,6 +29,7 @@ public class ClassesController : Controller
 
   public ActionResult Create()
   {
+    ViewBag.
     ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
     ViewBag.InstructorId = new SelectList(_db.Instructors, "InstructorId", "InstructorName");
     return View();
