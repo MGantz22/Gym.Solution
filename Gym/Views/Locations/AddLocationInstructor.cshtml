@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Gym.Models.Location
+
+<h1> Add a Location to an Instructor: @Html.DisplayFor(model => model.LocationId)</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.LocationId)
+
+    @Html.Label("Select Instructor ")
+    @Html.DropDownList("InstructorId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
