@@ -32,4 +32,27 @@ public class LocationsController : Controller
     _db.SaveChanges();
     return RedirectToAction("Index");
   }
+
+  public ActionResult AddInstructor(int id)
+  {
+    Location thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
+    ViewBag.InstructorId = new SelectList(_db.Instructors, "InstructorId", "InstructorName");
+    return View(thisLocation);
+  }
+
+  [HttpPost]
+  public ActionResult AddLocationInstructor (Location location, int instructorId)
+  {
+  #nullable enable
+  LocationInstructor? joinEntity = _db.LocationInstructors.FirstOrDefault(join => (join.InstructorId == instructorId && join.LocationId == location.LocationId));
+  #nullable disable
+  if(joinEntity == null && instructorId != 0)
+  {
+    _db.LocationInstructors.Add(new LocationInstructor() {InstructorId = instructorId, LocationId = location.LocationId });
+    _db.SaveChanges();
+
+  }
+
+  return RedirectToAction("Details" , new {id = location.LocationId});
+  }
 }
