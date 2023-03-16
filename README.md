@@ -35,12 +35,12 @@ dotnet tool install --global dotnet-ef --version 6.0.0
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=NAME;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];",
+    "DefaultConnection": "Server=localhost;Port=3306;database=gym_cmg3;uid=root;pwd=epicodus;",
   }
 }
 ```
 
-4. Install dependencies within the `Registrar` directory
+4. Install dependencies within the `Gym` directory
 ```
 $ dotnet restore
 ````
