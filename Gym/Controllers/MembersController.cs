@@ -48,6 +48,17 @@ namespace Gym.Controllers
             _db.Members.Update(member);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        
+        }
+
+        public ActionResult Details (int id)
+        {
+            Member thisMember = _db.Members
+            .Include(fish => fish.JoinEntities)
+            .ThenInclude(fish => fish.Class)
+            .FirstOrDefault(fish => fish.MemberId == id);
+            return View(thisMember);
+
         }
 
         public ActionResult AddClass(int id)
