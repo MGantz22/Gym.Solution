@@ -1,3 +1,35 @@
 @{
   Layout = "_Layout";
 }
+
+@using Gym.Models;
+@model  Gym.Models.Class
+
+<h1>Class deeets</h1>
+
+<h2>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h2>
+
+@if(Model.JoinEntities.Count == 0)
+{
+  <p>NO CLASSES HAVE INSTRUCTORS</p>
+}
+else
+{
+  <ul>
+    @foreach (ClassMember thingy in Model.JoinEntities)
+    {
+      <li>Member: @thingy.Member.MemberName</li>
+      @using (Html.BeginForm("DeleteThingy", "Class"))
+      {
+        @Html.Hidden("ThingyId", thingy.ClassMemberId)
+      }
+    }
+  </ul>
+
+}
+
+  <p>@Html.ActionLink("Back to Classes", "Index")</p>
+  <p>@Html.ActionLink("Run Home Smalls", "Index", "Home")</p>
+
+
+
